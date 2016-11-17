@@ -1,6 +1,8 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to image_path("cocktail.jpeg"), root_path, class: "navbar-wagon-brand" %>
+  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+     <%= image_tag("cocktail.jpeg") %>
+  <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right">
