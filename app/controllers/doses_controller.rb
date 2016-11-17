@@ -2,7 +2,9 @@ class DosesController < ApplicationController
   before_action :find_cocktail
 
   def create
-    @dose = @cocktail.doses.build(dose_params)
+    @dose = Dose.new(dose_params)
+    @dose.cocktail = @cocktail
+    @ingredients = Ingredient.all
     if @dose.save
       redirect_to cocktail_path(@cocktail)
     else
