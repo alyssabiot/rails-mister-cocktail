@@ -1,17 +1,12 @@
 class DosesController < ApplicationController
   before_action :find_cocktail
 
-  def new
-    @dose = Dose.new
-    @ingredients = Ingredient.all
-  end
-
   def create
     @dose = @cocktail.doses.build(dose_params)
     if @dose.save
       redirect_to cocktail_path(@cocktail)
     else
-      render :new # renvoie au formulaire en cas d'erreur de validation
+      render 'cocktails/show'
     end
   end
 
