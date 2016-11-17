@@ -13,7 +13,7 @@ list = open(url).read
 ingredients = JSON.parse(list)
 
 ingredients["drinks"].each do |item|
-  ingredient = Ingredient.new(name: item)
+  ingredient = Ingredient.new(name: item["strIngredient1"])
   ingredient.save
 end
 
