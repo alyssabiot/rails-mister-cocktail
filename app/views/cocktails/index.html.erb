@@ -1,17 +1,3 @@
-<%= render 'shared/banner' %>
-
 <h1 class="text-center">Discover your favorite cocktail's recipe</h1>
 
-<div class="container ingredients">
-  <div class="row">
-   <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <ul class="list-unstyled cocktail-list">
-        <% @cocktails.each do |cocktail| %>
-          <li>
-            <%= link_to cocktail.name, cocktail_path(cocktail), class: "fa fa-glass" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
+<%= render 'shared/cards' %>
