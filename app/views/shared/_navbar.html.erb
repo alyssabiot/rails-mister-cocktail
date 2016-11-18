@@ -1,3 +1,5 @@
+<% @cocktail = Cocktail.new %>
+
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path do %>
@@ -9,8 +11,32 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right">
+    <!-- Button trigger modal -->
+    <button type="button" class="navbar-wagon-item navbar-wagon-button btn btn-warning" data-toggle="modal" data-target="#myModal">
+      Add a cocktail
+    </button>
     <!-- Button (call-to-action) -->
-    <%= link_to "Add a cocktail", new_cocktail_path, class: "navbar-wagon-item navbar-wagon-button btn btn-warning" %>
     <%= link_to "See cocktails", cocktails_path, class: "navbar-wagon-item navbar-wagon-button btn btn-warning" %>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h1 class="modal-title" id="myModalLabel">Add your cocktail here</h1>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for(@cocktail) do |f| %>
+              <%= f.error_notification %>
+              <%= f.input :name %>
+              <%= f.input :photo %>
+              <%= f.input :photo_cache, as: :hidden %>
+              <%= f.button :submit, "Submit", class: "navbar-wagon-button btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
