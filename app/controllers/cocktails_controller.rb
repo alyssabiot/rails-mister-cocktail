@@ -18,6 +18,7 @@ class CocktailsController < ApplicationController
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
+      flash[:alert] = "Your cocktail is not valid: it must have a unique name and a picture!"
       redirect_to :back
     end
   end
